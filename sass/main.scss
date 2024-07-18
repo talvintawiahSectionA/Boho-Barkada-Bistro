@@ -1,0 +1,15 @@
+//custom variables
+$primary: #c29938;
+
+// custom classes
+
+.text-justify-custom {
+  text-align: justify;
+}
+.spacing {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+// import bootstrap
+@import "../node_modules/bootstrap//scss/bootstrap";
