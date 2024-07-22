@@ -1,0 +1,46 @@
+//custom variables
+$primary: #9f6f56;
+$secondary: #503c2a;
+$background-color: #f1e9e2;
+
+* {
+  // background-color: $background-color;
+  color: $primary;
+}
+.text-justify-custom {
+  text-align: justify;
+}
+.spacing {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+.carousel-item {
+  text-align: center;
+  padding: 2rem;
+}
+
+.stars {
+  font-size: 1.5rem;
+  color: #ffd700;
+  margin-bottom: 1rem;
+}
+
+.review-text {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.review-logo {
+  margin-top: 1rem;
+}
+
+// import bootstrap
+@import "../node_modules/bootstrap//scss/bootstrap";
