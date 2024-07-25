@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boho Barkada Bistro Menu</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F2CEAE;
+        }
+        .menu-container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-image: url('/mnt/data/image.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+        }
+        .menu-header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #8C4126;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        .tab {
+            margin: 0 15px;
+            padding: 10px 20px;
+            background-color: #734E40;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .tab:hover, .tab.active {
+            background-color: #BF8563;
+        }
+        .menu-section {
+            display: none;
+        }
+        .menu-section.active {
+            display: block;
+        }
+        .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .menu-item {
+            width: 30%;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #D9B5A0;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .menu-item:hover {
+            transform: scale(1.05);
+        }
+        .menu-item h4 {
+            font-size: 18px;
+            color: #8C4126;
+            margin-bottom: 5px;
+        }
+        .menu-item p {
+            font-size: 14px;
+            color: #734E40;
+            margin-bottom: 10px;
+        }
+        .menu-item .price {
+            font-size: 16px;
+            color: #BF8563;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="menu-header">
+            <h1>Boho Barkada Bistro</h1>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" data-tab="starters">Starters</div>
+            <div class="tab" data-tab="appetizers">Appetizers</div>
+            <div class="tab" data-tab="foods">Foods</div>
+            <div class="tab" data-tab="drinks">Drinks</div>
+        </div>
+
+        <div class="menu-section active" id="starters">
+            <h2>Starters</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h4>Seared Scallops</h4>
+                    <p>With pea purée and crispy pancetta.</p>
+                    <span class="price">$18</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Foie Gras</h4>
+                    <p>Served with fig jam and toasted brioche.</p>
+                    <span class="price">$22</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Truffle Soup</h4>
+                    <p>Rich and creamy with a hint of black truffle.</p>
+                    <span class="price">$15</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Oysters Rockefeller</h4>
+                    <p>Classic preparation with spinach and hollandaise.</p>
+                    <span class="price">$20</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Beef Tartare</h4>
+                    <p>Hand-cut beef with capers and quail egg.</p>
+                    <span class="price">$19</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Crab Cakes</h4>
+                    <p>With remoulade and microgreens.</p>
+                    <span class="price">$18</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Escargot</h4>
+                    <p>In garlic butter and parsley.</p>
+                    <span class="price">$16</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Duck Liver Parfait</h4>
+                    <p>With toasted brioche and apple chutney.</p>
+                    <span class="price">$21</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Gazpacho</h4>
+                    <p>Chilled tomato soup with a touch of basil.</p>
+                    <span class="price">$12</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Spiced Carrot Soup</h4>
+                    <p>With ginger and coriander.</p>
+                    <span class="price">$14</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section" id="appetizers">
+            <h2>Appetizers</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h4>Carpaccio</h4>
+                    <p>Thinly sliced raw beef with parmesan and arugula.</p>
+                    <span class="price">$18</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Grilled Octopus</h4>
+                    <p>Served with lemon and paprika.</p>
+                    <span class="price">$25</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Spring Rolls</h4>
+                    <p>With a sweet chili dipping sauce.</p>
+                    <span class="price">$12</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Bruschetta</h4>
+                    <p>Tomato, basil, and mozzarella on toasted bread.</p>
+                    <span class="price">$10</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Smoked Salmon</h4>
+                    <p>With dill cream cheese and capers.</p>
+                    <span class="price">$17</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Stuffed Mushrooms</h4>
+                    <p>With garlic and herb cheese.</p>
+                    <span class="price">$14</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Calamari</h4>
+                    <p>Fried with lemon and aioli.</p>
+                    <span class="price">$15</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Prosciutto and Melon</h4>
+                    <p>With balsamic reduction.</p>
+                    <span class="price">$16</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Goat Cheese Tart</h4>
+                    <p>With caramelized onions and thyme.</p>
+                    <span class="price">$14</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Caprese Salad</h4>
+                    <p>Tomato, mozzarella, and basil with balsamic glaze.</p>
+                    <span class="price">$13</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section" id="foods">
+            <h2>Foods</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h4>Grilled Salmon</h4>
+                    <p>Served with a side of seasonal vegetables.</p>
+                    <span class="price">$25</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Beef Wellington</h4>
+                    <p>With mushroom duxelles and red wine jus.</p>
+                    <span class="price">$35</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Risotto</h4>
+                    <p>Creamy risotto with wild mushrooms and truffle oil.</p>
+                    <span class="price">$22</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Roast Chicken</h4>
+                    <p>With rosemary potatoes and jus.</p>
+                    <span class="price">$28</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Filet Mignon</h4>
+                    <p>With garlic mashed potatoes and asparagus.</p>
+                    <span class="price">$40</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Lamb Chops</h4>
+                    <p>Served with mint sauce and roasted vegetables.</p>
+                    <span class="price">$38</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Vegetarian Pasta</h4>
+                    <p>With seasonal vegetables and marinara sauce.</p>
+                    <span class="price">$20</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Seafood Paella</h4>
+                    <p>With saffron rice, shrimp, and mussels.</p>
+                    <span class="price">$30</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Chicken Alfredo</h4>
+                    <p>Creamy alfredo sauce with grilled chicken.</p>
+                    <span class="price">$22</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Vegetable Stir-fry</h4>
+                    <p>With tofu and soy-ginger sauce.</p>
+                    <span class="price">$18</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section" id="drinks">
+            <h2>Drinks</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h4>Mojito</h4>
+                    <p>Refreshing mint and lime cocktail.</p>
+                    <span class="price">$10</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Old Fashioned</h4>
+                    <p>Bourbon, bitters, and a twist of orange.</p>
+                    <span class="price">$12</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Margarita</h4>
+                    <p>Tequila, lime juice, and triple sec.</p>
+                    <span class="price">$11</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Espresso Martini</h4>
+                    <p>Vodka, coffee liqueur, and espresso.</p>
+                    <span class="price">$13</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Negroni</h4>
+                    <p>Gin, Campari, and sweet vermouth.</p>
+                    <span class="price">$12</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Pina Colada</h4>
+                    <p>Rum, coconut cream, and pineapple juice.</p>
+                    <span class="price">$10</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Moscow Mule</h4>
+                    <p>Vodka, ginger beer, and lime.</p>
+                    <span class="price">$11</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Whiskey Sour</h4>
+                    <p>Whiskey, lemon juice, and simple syrup.</p>
+                    <span class="price">$12</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Bellini</h4>
+                    <p>Prosecco and peach purée.</p>
+                    <span class="price">$10</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Long Island Iced Tea</h4>
+                    <p>Vodka, tequila, rum, gin, and cola.</p>
+                    <span class="price">$14</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.menu-section').forEach(section => section.classList.remove('active'));
+
+                this.classList.add('active');
+                document.getElementById(this.getAttribute('data-tab')).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
