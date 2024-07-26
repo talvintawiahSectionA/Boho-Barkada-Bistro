@@ -3,21 +3,57 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>About Us</title>
+    <title>Bootstrap demo</title>
     <link href="/css/main.min.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <style>
+      /* navbar.css */
+
+      .navbar-nav .nav-link {
+        margin-right: 1rem;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .navbar-nav .nav-link svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        stroke: #9f6f56;
+        stroke-width: 2;
+        fill: none;
+        stroke-dasharray: 300;
+        stroke-dashoffset: 300;
+        transform: translate(-50%, -50%);
+        transition: stroke-dashoffset 0.4s ease, stroke 0.4s ease;
+      }
+
+      .navbar-nav .nav-link.active svg,
+      .navbar-nav .nav-link:hover svg {
+        stroke-dashoffset: 0;
+      }
+
+      .navbar-nav .nav-link.active {
+        font-weight: bold;
+        color: #9f6f56;
+      }
+    </style>
   </head>
+
   <body>
     <!-- navbar -->
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
       <div class="container-fluid">
-        <a class="navbar-brand logo" href="#"
-          ><img src="assets/boho-logo.jpg "
-        /></a>
+        <a class="navbar-brand logo" href="#">
+          <img src="assets/updated-logo.png" alt="Boho Bistro Logo" />
+        </a>
         <button
           class="navbar-toggler"
           type="button"
@@ -35,68 +71,93 @@
         >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="menu.html">Menu</a>
+              <a class="nav-link" aria-current="page" href="#">
+                Home
+                <svg viewBox="0 0 100 50">
+                  <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
+                </svg>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="reservation.html">Reservation</a>
+              <a class="nav-link" href="#">
+                About Us
+                <svg viewBox="0 0 100 50">
+                  <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
+                </svg>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="gallery.html">Gallery</a>
+              <a class="nav-link" href="menu.html">
+                Menu
+                <svg viewBox="0 0 100 50">
+                  <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
+                </svg>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact_us.html">Contact Us</a>
+              <a class="nav-link" href="reservation.html">
+                Reservation
+                <svg viewBox="0 0 100 50">
+                  <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html">
+                Gallery
+                <svg viewBox="0 0 100 50">
+                  <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact_us.html">
+                Contact Us
+                <svg viewBox="0 0 100 50">
+                  <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
+                </svg>
+              </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-<body>
-
-    <section class="py-5">
-        <div class="container">
-            <div class="row gx-4 align-items-center justify-content-between">
-                <div class="col-md-5 order-2 order-md-1">
-                    <div class="mt-5 mt-md-0">
-                        <span class="text-muted">Our Story</span>
-                        <h2 class="display-10 fw-bold">About Us</h2>
+    <body>
+        <section class="intro">
+            <div class="container-md">
+              <div class="justify-content-center align-items-center">
+                        <p class="text-muted text-center">Our Story</p>
+                        <h2 class="display-10 fw-bold text-center">About Us</h2>
                         <p class="lead">Boho Barkada was born out of an idea conceived by two chefs who met while attending Humber College in Toronto, Canada. Mateo DaVinci and Colette Azurmendi crossed paths in culinary school and formed an instant bond over their shared passion for cooking. After graduation, both chefs decided to embark on separate journeys, traveling the world to learn from master chefs and explore diverse culinary traditions. These experiences enriched their skills and broadened their horizons, fueling their dream to one day open a unique dining establishment together.</p>
                         <p class="lead">Upon returning to Toronto, Mateo and Colette reunited to turn their dream into reality. They chose Toronto as the location for Boho Barkada Bistro because of its vibrant, multicultural atmosphere and thriving food scene. The city’s dynamic and diverse population, combined with its reputation for embracing innovative dining concepts, made it the perfect setting for their urban rustic haven.</p>
                         <p class="lead">Boho Barkada Bistro is set to be Toronto's next urban rustic haven, blending the artistic, free-spirited essence of the Boho lifestyle with the camaraderie and warmth of a Barkada—a close-knit group of friends. This concept marries the charm of an informal French bistro with an inviting atmosphere that celebrates creativity, friendship, and community. Boho Barkada Bistro embodies the Boho spirit, appealing to Toronto's vibrant and diverse artistic community. It's a place where creative minds can gather, express themselves, and find inspiration. In a bustling city like Toronto, providing a space where people can connect and feel a sense of belonging is invaluable. The bistro ensures a relaxed, yet sophisticated dining experience, offering high-quality food and drinks in a laid-back setting. The blend of Boho artistry, the friendly Barkada vibe, and the casual sophistication of a bistro creates a unique and memorable environment that stands out in Toronto's dining scene.</p>
-                        <span class="text-muted">Meet Our Executive Chefs</span>
-                        <h2 class="display-10 fw-bold">Chef Mateo DaVinci</h2>
+                        <p class="text-muted text-center">Meet Our Executive Chefs</p>
+                        <h2 class="display-10 fw-bold text-center">Chef Mateo DaVinci</h2>
                         <p class="lead">Born to Italian immigrant parents, Mateo found joy in cooking at an early age, learning the culinary arts from his beloved nonna. His Italian heritage and global culinary experiences inspire his creations, infusing traditional techniques with contemporary flair.</p>
-                        <h2 class="display-10 fw-bold">Chef Colette Cortez</h2>
+                        <div class="row gx-2 gx-lg-3">
+                            <div class="col-6">
+                                <div class="mb-2"><img class="card-img-top img-sizing-small" src="https://reportergourmet.com/upload/chef/324/d_metullio-news-970-copertina_2023-05-08_11-32-34.jpg" alt="Chef Mateo DaVinci Image 1"></div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-2"><img class="card-img-top img-sizing-small" src="https://harrystrieste.it/wp-content/uploads/2023/11/Espressione-dellanima.jpg" alt="Chef Mateo DaVinci Image 2"></div>
+                            </div>
+                        </div>
+                        <h2 class="display-10 fw-bold text-center">Chef Colette Cortez</h2>
                         <p class="lead">With French and Spanish parentage, Colette thrived from a young age in the kitchen. Her creativity and passion for culinary arts led her to experiment with bold flavors and innovative presentations, making her dishes both visually stunning and delectable.</p>
+                        <div class="row gx-2 gx-lg-3">
+                            <div class="col-6">
+                                <div class="mb-2"><img class="card-img-top img-sizing-small" src="https://img.freepik.com/premium-photo/woman-standing-restaurant-with-her-arms-crossed-observing-her-surroundings-photo-female-chef-restaurant-ai-generated_538213-16719.jpg" alt="Chef Colette Cortez Image 1"></div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-2"><img class="card-img-top img-sizing-small" src="https://static.vecteezy.com/system/resources/previews/035/756/557/large_2x/ai-generated-young-female-chef-preparing-food-in-the-kitchen-of-a-restaurant-or-hotel-a-female-chef-in-the-kitchen-ai-generated-free-photo.jpg" alt="Chef Colette Cortez Image 2"></div>
+                            </div>
+                        </div>
                         <p class="lead">Together, Mateo and Colette bring their rich cultural backgrounds, extensive travels, and deep friendship to Boho Barkada Bistro, creating a dining experience that is as unique and memorable as their journey.</p>
                     </div>
                 </div>
-                <div class="col-md-6 offset-md-1 order-1 order-md-2">
-                    <div class="row gx-2 gx-lg-3">
-                        <div class="col-6">
-                            <div class="mb-2"><img class="img-fluid rounded-3" src="https://reportergourmet.com/upload/chef/324/d_metullio-news-970-copertina_2023-05-08_11-32-34.jpg"></div>
-                        </div>
-                        <div class="col-6">
-                            <div class="mb-2"><img class="img-fluid rounded-3" src="https://harrystrieste.it/wp-content/uploads/2023/11/Espressione-dellanima.jpg"></div>
-                        </div>
-                        <div class="col-6">
-                            <div class="mb-2"><img class="img-fluid rounded-3" src="https://img.freepik.com/premium-photo/woman-standing-restaurant-with-her-arms-crossed-observing-her-surroundings-photo-female-chef-restaurant-ai-generated_538213-16719.jpg"></div>
-                        </div>
-                        <div class="col-6">
-                            <div class="mb-2"><img class="img-fluid rounded-3" src="https://static.vecteezy.com/system/resources/previews/035/756/557/large_2x/ai-generated-young-female-chef-preparing-food-in-the-kitchen-of-a-restaurant-or-hotel-a-female-chef-in-the-kitchen-ai-generated-free-photo.jpg"></div>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>    
 
     <!-- Remove the container if you want to extend the Footer to full width. -->
 
