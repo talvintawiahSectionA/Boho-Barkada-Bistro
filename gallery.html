@@ -63,57 +63,87 @@
           font-family: 'Soria', serif;
           color: #9f6f56;
         }
-        
+        /* navbar.css */
+
+.navbar-nav .nav-link {
+    margin-right: 1rem;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.navbar-nav .nav-link svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    stroke: #9f6f56;
+    stroke-width: 2;
+    fill: none;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    transform: translate(-50%, -50%);
+    transition: stroke-dashoffset 0.4s ease, stroke 0.4s ease;
+}
+
+.navbar-nav .nav-link.active svg,
+.navbar-nav .nav-link:hover svg {
+    stroke-dashoffset: 0;
+}
+
+.navbar-nav .nav-link.active {
+    font-weight: bold;
+    color: #9f6f56;
+}
         
     </style>
   </head>
   <body>
-    <!-- navbar -->
+     <!-- navbar -->
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
-      <div class="container-fluid">
-        <a class="navbar-brand logo" href="#"
+   <nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
+    <div class="container-fluid">
+      <a class="navbar-brand me-5" href="index.html"></a>
+      <a class="navbar-brand logo" href="#"
           ><img src="assets/boho-logo.jpg "
         /></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="collapse navbar-collapse justify-content-center"
-          id="navbarNav"
-        >
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-            </li>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse ms-5" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="about_us.html">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="menu.html">Menu</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="reservation.html">Reservation</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="gallery.html">Gallery</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact_us.html">Contact Us</a>
-            </li>
-          </ul>
-        </div>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutus.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="menu.html">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="reservation.html">Reservation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact_us.html">Contact Us</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
   <!-----INTRO---->
   <h3 class="display-5 justify-content-center"> GALLERY</h3>
   <div class="container">
@@ -510,6 +540,17 @@
           modalImage.src = imageSource;
         });
       });
+    </script>
+    <script>
+      // Handle active state of navbar links
+document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link) {
+            link.classList.remove('active');
+        });
+        this.classList.add('active');
+    });
+});
     </script>
   </body>
 </html>
