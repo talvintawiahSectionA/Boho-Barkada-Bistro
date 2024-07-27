@@ -1,541 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Boho Barkada Bistro</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="/css/main.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
-        body {
-            background-color: white;
-            color: #9f6f56;
-            font-family: Arial, sans-serif;
-        }
+      /* navbar.css */
 
-        .contact-info, .faq .card-header {
-            background-color: white;
-            color: #9f6f56;
-        }
+      .navbar-nav .nav-link {
+        margin-right: 1rem;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+      }
 
-        .navbar {
-            background-color: white;
-            color: #9f6f56;
-            border-bottom: 2px solid #9f6f56;
-        }
-/* navbar.css */
+      .navbar-nav .nav-link svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        stroke: #9f6f56;
+        stroke-width: 2;
+        fill: none;
+        stroke-dasharray: 300;
+        stroke-dashoffset: 300;
+        transform: translate(-50%, -50%);
+        transition: stroke-dashoffset 0.4s ease, stroke 0.4s ease;
+      }
 
-.navbar-nav .nav-link {
-    margin-right: 1rem;
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-}
+      .navbar-nav .nav-link.active svg,
+      .navbar-nav .nav-link:hover svg {
+        stroke-dashoffset: 0;
+      }
 
-.navbar-nav .nav-link svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    stroke: #9f6f56;
-    stroke-width: 2;
-    fill: none;
-    stroke-dasharray: 300;
-    stroke-dashoffset: 300;
-    transform: translate(-50%, -50%);
-    transition: stroke-dashoffset 0.4s ease, stroke 0.4s ease;
-}
+      .nav-link.active {
+        font-weight: bold;
+        color: #9f6f56;
+      }
 
-.navbar-nav .nav-link.active svg,
-.navbar-nav .nav-link:hover svg {
-    stroke-dashoffset: 0;
-}
+      .navbar .nav-link:hover,
+      .navbar .nav-link:focus,
+      .contact-details a:hover,
+      .faq .btn-link:hover,
+      .footer-links a:hover,
+      .social-icons a:hover {
+        color: #9f6f56;
+      }
 
-.navbar-nav .nav-link.active {
-    font-weight: bold;
-    color: #9f6f56;
-}
-        header {
-            background-color: white;
-            color: #9f6f56;
-            padding: 20px;
-            text-align: center;
-            width: 100%;
-            font-size: large;
-        }
+      #map {
+        height: 400px;
+      }
 
-        .navbar .nav-link, .navbar .navbar-brand,
-        .contact-details a, .faq .btn-link,
-        .footer-links a, .social-icons a {
-            color: #9f6f56;
-        }
+      footer {
+        background-color: #9f6f56;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        border-top: 1px solid #9f6f56;
+      }
 
-        .navbar .nav-link:hover, .navbar .nav-link:focus,
-        .contact-details a:hover, .faq .btn-link:hover,
-        .footer-links a:hover, .social-icons a:hover {
-            color: #9f6f56;
-        }
+      .footer-links a,
+      .social-icons a {
+        color: white;
+      }
 
-        .contact-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 8px;
-            padding: 35px;
-            margin-bottom: 35px;
-            background-color: white;
-        }
+      .footer .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-        .contact-details {
-            font-size: 25px;
-            line-height: 1.6;
-            text-align: left;
-            margin-left: 20px;
-        }
+      .footer .container .row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
 
-        #map {
-            height: 400px;
-            width: 300%;
-            max-width: 900px;
-            border: 3px solid #9f6f56;
-            border-radius: 12px;
-            margin: 60px;
-        }
+      .footer h6 {
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
 
-/* FAQ Section Styles */
-.faq h2 {
-    color: #9f6f56;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 40px;
-}
+      .footer p,
+      .footer a {
+        margin: 0;
+        margin-bottom: 10px;
+      }
 
-.accordion .card {
-    border: none;
-    border-radius: 0;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+      .footer .social-icons a {
+        margin: 0 10px;
+        display: inline-block;
+        text-align: center;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        border-radius: 50%;
+        border: 1px solid #9f6f56;
+        color: #9f6f56;
+      }
 
-.accordion .card-header {
-    background-color: #ffffff;
-    border: none;
-    padding: 0;
-    margin: 12px;
-}
+      .footer .social-icons a:hover {
+        background-color: #9f6f56;
+        color: white;
+      }
 
-.accordion .btn-link {
-    color: #9f6f56;
-    font-size: 20px;
-    font-weight: bold;
-    width: 100%;
-    text-align: left;
-    padding: 20px;
-    background-color: #ffffff;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.accordion .btn-link:hover {
-    background-color: #f0e6e1;
-    color: #9f6f56;
-}
-
-.accordion .card-body {
-    background-color: #ffffff;
-    color: #9f6f56;
-    padding: 20px;
-    font-size: 16px;
-}
-
-
-
-
-        footer {
-            background-color: #9f6f56;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            border-top: 1px solid #9f6f56;
-        }
-
-        .footer-links a, .social-icons a {
-            color: white;
-        }
-
-        .footer .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .footer .container .row {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .footer h6 {
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .footer p, .footer a {
-            margin: 0;
-            margin-bottom: 10px;
-        }
-
-        .footer .social-icons a {
-            margin: 0 10px;
-            display: inline-block;
-            text-align: center;
-            width: 35px;
-            height: 35px;
-            line-height: 35px;
-            border-radius: 50%;
-            border: 1px solid #9f6f56;
-            color: #9f6f56;
-        }
-
-        .footer .social-icons a:hover {
-            background-color: #9f6f56;
-            color: white;
-        }
-
-        .footer .col-md-7, .footer .col-md-5 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .footer .col-md-7,
+      .footer .col-md-5 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- navbar -->
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
-        <div class="container-fluid">
-          <a class="navbar-brand logo" href="#">
-            <img src="assets/updated-logo.png" alt="Boho Bistro Logo" />
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div
-            class="collapse navbar-collapse justify-content-center"
-            id="navbarNav"
-          >
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">
-                  Home
-                  <svg viewBox="0 0 100 50">
-                    <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
-                  </svg>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about_us.html">
-                  About Us
-                  <svg viewBox="0 0 100 50">
-                    <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
-                  </svg>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="menu.html">
-                  Menu
-                  <svg viewBox="0 0 100 50">
-                    <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
-                  </svg>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="reservation.html">
-                  Reservation
-                  <svg viewBox="0 0 100 50">
-                    <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
-                  </svg>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="gallery.html">
-                  Gallery
-                  <svg viewBox="0 0 100 50">
-                    <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
-                  </svg>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact_us.html">
-                  Contact Us
-                  <svg viewBox="0 0 100 50">
-                    <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </div>
+      <div class="container-fluid">
+        <a class="navbar-brand logo" href="index.html">
+          <img src="assets/updated-logo.png" alt="Boho Bistro Logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">
+                Home
+                <svg viewBox="0 0 100 50">
+                  <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about_us.html">
+                About Us
+                <svg viewBox="0 0 100 50">
+                  <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="menu.html">
+                Menu
+                <svg viewBox="0 0 100 50">
+                  <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="reservation.html">
+                Reservation
+                <svg viewBox="0 0 100 50">
+                  <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html">
+                Gallery
+                <svg viewBox="0 0 100 50">
+                  <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Contact Us
+                <svg viewBox="0 0 100 50">
+                  <ellipse cx="50" cy="25" rx="45" ry="20"></ellipse>
+                </svg>
+              </a>
+            </li>
+          </ul>
         </div>
-      </nav>
-    <!-- Header -->
-    <header>
-        <h1>Contact Us</h1>
-    </header>
+      </div>
+    </nav>
 
+    <div class="ms-3">
+      <p class="display-3 text-center">Contact Us</p>
+      <p class="lead-5 text-secondary text-center">
+        Get in touch with us to learn more about our bistro and offerings
+      </p>
+    </div>
     <!-- Contact Info Section -->
     <section class="contact-info">
-        
-        <div id="map"></div>
-        <div class="contact-details">
-            <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-            <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
-            <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-            <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
-            <p>Get in touch with us to learn more about our menu and offerings.</p>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-10">
+            <div id="map"></div>
+          </div>
+          <div class="col-md-2 mt-2">
+            <div class="contact-details">
+              <p class="lead-5 text-secondary">
+                <i class="fas fa-home mr-3"></i> New York, NY 10012, US
+              </p>
+              <p class="lead-5 text-secondary">
+                <i class="fas fa-envelope mr-3"></i> info@gmail.com
+              </p>
+              <p class="lead-5 text-secondary">
+                <i class="fas fa-phone mr-3"></i> + 01 234 567 88
+              </p>
+              <p class="lead-5 text-secondary">
+                <i class="fas fa-print mr-3"></i> + 01 234 567 89
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- FAQ Section -->
-<section class="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="accordion" id="faqAccordion">
-        <div class="card">
-            <div class="card-header" id="headingOne">
-                <h2 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        What are your hours of operation?
-                    </button>
-                </h2>
+    <section class="FAQS">
+      <div class="mx-3">
+        <div class="row">
+          <div class="col-md-5 col-sm-12 mb-5">
+            <p class="display-5">FAQs</p>
+            <p class="text-secondary lead-5">
+              Find answers to commonly asked questions about our bistro,
+              including our opening hours, parking availability, and special
+              accomodations.
+            </p>
+            <button class="btn btn-outline-secondary rounded-0">Contact</button>
+          </div>
+          <div class="col-md-7 col-sm-12">
+            <div class="card border mb-2">
+              <div class="card-body">
+                <h5 class="card-title text-primary">
+                  What are your opening hours?
+                </h5>
+                <p class="card-subtitle mb-2 text-secondary">
+                  Our Bistro is open from 9am to 10pm, Monday to Sunday. We are
+                  here to serve you throughout the day, offering
+                  breakfast,lunch, and dinner options.
+                </p>
+              </div>
             </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
-                <div class="card-body">
-                    We are open Monday to Friday from 9am to 10pm, and Saturday to Sunday from 10am to 11pm.
-                </div>
+            <div class="card border mb-2">
+              <div class="card-body">
+                <h5 class="card-title text-primary">
+                  Do you offer vegetarian options?
+                </h5>
+                <p class="card-subtitle mb-2 text-secondary">
+                  Yes, we offer a variety of vegetarian and vegan options on our
+                  menu.
+                </p>
+              </div>
             </div>
+            <div class="card border mb-2">
+              <div class="card-body">
+                <h5 class="card-title text-primary">
+                  Can I make a reservation online?
+                </h5>
+                <p class="card-subtitle mb-2 text-secondary">
+                  Yes, you can make a reservation through our website. Visit our
+                  reservation page for more details.
+                </p>
+              </div>
+            </div>
+            <div class="card border mb-2">
+              <div class="card-body">
+                <h5 class="card-title text-primary">
+                  Do you have special Accomodations?
+                </h5>
+                <p class="card-subtitle mb-2 text-secondary">
+                  Absolutely! We strive to provide a welcoming environment for
+                  all our guests. If you have any special requests or
+                  requirements, please let us know, we will do our best to
+                  accomodate you.
+                </p>
+              </div>
+            </div>
+            <div class="card border mb-2">
+              <div class="card-body">
+                <h5 class="card-title text-primary">Is parking available?</h5>
+                <p class="card-subtitle mb-2 text-secondary">
+                  Yes, we have parking available for our customers. There is a
+                  parking lot located next to the bistro, making it convenient
+                  for you to dine with us
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card">
-            <div class="card-header" id="headingTwo">
-                <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Do you offer vegetarian options?
-                    </button>
-                </h2>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
-                <div class="card-body">
-                    Yes, we offer a variety of vegetarian and vegan options on our menu.
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingThree">
-                <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Can I make a reservation online?
-                    </button>
-                </h2>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
-                <div class="card-body">
-                    Yes, you can make a reservation through our website. Visit our reservation page for more details.
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-                </div>
-            </div>
-            <!-- Add more FAQ items as needed -->
-        </div>
+      </div>
     </section>
+
+    <div class="spacing"></div>
+    <div class="spacing"></div>
+    <section class="get-in-touch">
+      <div class="container-lg mx-5"></div>
+      <div class="row mx-3">
+        <div class="col-6">
+          <div class="form">
+            <div class="mt-5">
+              <p class="display-5">Get in Touch</p>
+              <p class="lead-5 text-secondary">
+                We would love to hear from you! Please fill out the form below
+              </p>
+              <form>
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input
+                    type="text"
+                    class="form-control small-input"
+                    id="name"
+                    placeholder=""
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control small-input"
+                    id="email"
+                    placeholder=""
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea
+                    class="form-control small-input"
+                    id="message"
+                    rows="4"
+                    placeholder="Enter your message..."
+                  ></textarea>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="agree"
+                  />
+                  <label class="form-check-label" for="agree">
+                    I agree to the Terms
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-secondary rounded-0">
+                  Send
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <img
+            src="assets/landing-7.jpg"
+            class="card-img-top img-sizing-large"
+          />
+        </div>
+      </div>
+    </section>
+
+    <div class="spacing"></div>
 
     <!-- Footer -->
     <footer class="footer text-center text-lg-start text-white">
-        <!-- Grid container -->
-        <div class="container p-4 pb-0">
-          <!-- Section: Links -->
-          <section class="">
-            <!--Grid row-->
-            <div class="row">
-              <!-- Grid column -->
-              <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                <h6 class="text-uppercase mb-4 font-weight-bold text-white">
-                  Boho Barkada
-                </h6>
-                <p class="text-white">
-                  Here you can use rows and columns to organize your footer
-                  content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                  elit.
-                </p>
-              </div>
-              <!-- Grid column -->
-  
-              <hr class="w-100 clearfix d-md-none" />
-  
-              <!-- Grid column -->
-              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h6 class="text-uppercase mb-4 font-weight-bold text-white">
-                  Products
-                </h6>
-                <p>
-                  <a class="text-white">MDBootstrap</a>
-                </p>
-                <p>
-                  <a class="text-white">MDWordPress</a>
-                </p>
-                <p>
-                  <a class="text-white">BrandFlow</a>
-                </p>
-                <p>
-                  <a class="text-white">Bootstrap Angular</a>
-                </p>
-              </div>
-              <!-- Grid column -->
-  
-              <hr class="w-100 clearfix d-md-none" />
-  
-              <!-- Grid column -->
-              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h6 class="text-uppercase mb-4 font-weight-bold text-white">
-                  Useful links
-                </h6>
-                <p>
-                  <a class="text-white">Your Account</a>
-                </p>
-                <p>
-                  <a class="text-white">Become an Affiliate</a>
-                </p>
-                <p>
-                  <a class="text-white">Shipping Rates</a>
-                </p>
-                <p>
-                  <a class="text-white">Help</a>
-                </p>
-              </div>
-  
-              <!-- Grid column -->
-              <hr class="w-100 clearfix d-md-none" />
-  
-              <!-- Grid column -->
-              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                <h6 class="text-uppercase mb-4 font-weight-bold text-white">
-                  Contact
-                </h6>
-                <p class="text-white">
-                  <i class="fas fa-home mr-3"></i> New York, NY 10012, US
-                </p>
-                <p class="text-white">
-                  <i class="fas fa-envelope mr-3"></i> info@gmail.com
-                </p>
-                <p class="text-white">
-                  <i class="fas fa-phone mr-3"></i> + 01 234 567 88
-                </p>
-                <p class="text-white">
-                  <i class="fas fa-print mr-3"></i> + 01 234 567 89
-                </p>
-              </div>
-              <!-- Grid column -->
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Links -->
+        <section class="">
+          <!--Grid row-->
+          <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold text-white">
+                Boho Barkada
+              </h6>
+              <p class="text-white">
+                Here you can use rows and columns to organize your footer
+                content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit.
+              </p>
             </div>
-            <!--Grid row-->
-          </section>
-          <!-- Section: Links -->
-  
-          <hr class="my-3" />
-  
-          <!-- Section: Copyright -->
-          <section class="p-3 pt-0">
-            <div class="row d-flex align-items-center">
-              <!-- Grid column -->
-              <div class="col-md-7 col-lg-8 text-center text-md-start">
-                <!-- Copyright -->
-                <div class="p-3 text-white">
-                  © 2024 Copyright:
-                  <a class="text-white" href="https://mdbootstrap.com/"
-                    >MDBootstrap.com</a
-                  >
-                </div>
-                <!-- Copyright -->
-              </div>
-              <!-- Grid column -->
-  
-              <!-- Grid column -->
-              <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
-                <!-- Facebook -->
-                <a
-                  class="btn btn-outline-light btn-floating m-1"
-                  class="text-white"
-                  role="button"
-                  ><i class="fab fa-facebook-f text-white"></i
-                ></a>
-  
-                <!-- Twitter -->
-                <a
-                  class="btn btn-outline-light btn-floating m-1"
-                  class="text-white"
-                  role="button"
-                  ><i class="fab fa-twitter text-white"></i
-                ></a>
-  
-                <!-- Google -->
-                <a
-                  class="btn btn-outline-light btn-floating m-1"
-                  class="text-white"
-                  role="button"
-                  ><i class="fab fa-google text-white"></i
-                ></a>
-  
-                <!-- Instagram -->
-                <a
-                  class="btn btn-outline-light btn-floating m-1 text-white"
-                  role="button"
-                  ><i class="fab fa-instagram text-white"></i
-                ></a>
-              </div>
-              <!-- Grid column -->
+            <!-- Grid column -->
+
+            <hr class="w-100 clearfix d-md-none" />
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold text-white">
+                Products
+              </h6>
+              <p>
+                <a class="text-white">MDBootstrap</a>
+              </p>
+              <p>
+                <a class="text-white">MDWordPress</a>
+              </p>
+              <p>
+                <a class="text-white">BrandFlow</a>
+              </p>
+              <p>
+                <a class="text-white">Bootstrap Angular</a>
+              </p>
             </div>
-          </section>
-          <!-- Section: Copyright -->
-        </div>
-        <!-- Grid container -->
-      </footer>
-      <!-- Footer -->
+            <!-- Grid column -->
+
+            <hr class="w-100 clearfix d-md-none" />
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold text-white">
+                Useful links
+              </h6>
+              <p>
+                <a class="text-white">Your Account</a>
+              </p>
+              <p>
+                <a class="text-white">Become an Affiliate</a>
+              </p>
+              <p>
+                <a class="text-white">Shipping Rates</a>
+              </p>
+              <p>
+                <a class="text-white">Help</a>
+              </p>
+            </div>
+
+            <!-- Grid column -->
+            <hr class="w-100 clearfix d-md-none" />
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold text-white">
+                Contact
+              </h6>
+              <p class="text-white">
+                <i class="fas fa-home mr-3"></i> New York, NY 10012, US
+              </p>
+              <p class="text-white">
+                <i class="fas fa-envelope mr-3"></i> info@gmail.com
+              </p>
+              <p class="text-white">
+                <i class="fas fa-phone mr-3"></i> + 01 234 567 88
+              </p>
+              <p class="text-white">
+                <i class="fas fa-print mr-3"></i> + 01 234 567 89
+              </p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!--Grid row-->
+        </section>
+        <!-- Section: Links -->
+
+        <hr class="my-3" />
+
+        <!-- Section: Copyright -->
+        <section class="p-3 pt-0">
+          <div class="row d-flex align-items-center">
+            <!-- Grid column -->
+            <div class="col-md-7 col-lg-8 text-center text-md-start">
+              <!-- Copyright -->
+              <div class="p-3 text-white">
+                © 2024 Copyright:
+                <a class="text-white" href="https://mdbootstrap.com/"
+                  >MDBootstrap.com</a
+                >
+              </div>
+              <!-- Copyright -->
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+              <!-- Facebook -->
+              <a
+                class="btn btn-outline-light btn-floating m-1"
+                class="text-white"
+                role="button"
+                ><i class="fab fa-facebook-f text-white"></i
+              ></a>
+
+              <!-- Twitter -->
+              <a
+                class="btn btn-outline-light btn-floating m-1"
+                class="text-white"
+                role="button"
+                ><i class="fab fa-twitter text-white"></i
+              ></a>
+
+              <!-- Google -->
+              <a
+                class="btn btn-outline-light btn-floating m-1"
+                class="text-white"
+                role="button"
+                ><i class="fab fa-google text-white"></i
+              ></a>
+
+              <!-- Instagram -->
+              <a
+                class="btn btn-outline-light btn-floating m-1 text-white"
+                role="button"
+                ><i class="fab fa-instagram text-white"></i
+              ></a>
+            </div>
+            <!-- Grid column -->
+          </div>
+        </section>
+        <!-- Section: Copyright -->
+      </div>
+      <!-- Grid container -->
+    </footer>
+    <!-- Footer -->
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
+    <script>
+      var map = L.map("map").setView([51.505, -0.09], 13);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+      }).addTo(map);
 
-
-
-<script>
-        var map = L.map('map').setView([51.505, -0.09], 13);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19
-        }).addTo(map);
-
-        // Handle active state of navbar links
-document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link) {
-    link.addEventListener('click', function() {
-        document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link) {
-            link.classList.remove('active');
+      // Handle active state of navbar links
+      document
+        .querySelectorAll(".navbar-nav .nav-link")
+        .forEach(function (link) {
+          link.addEventListener("click", function () {
+            document
+              .querySelectorAll(".navbar-nav .nav-link")
+              .forEach(function (link) {
+                link.classList.remove("active");
+              });
+            this.classList.add("active");
+          });
         });
-        this.classList.add('active');
-    });
-});
-
     </script>
-</body>
+  </body>
 </html>

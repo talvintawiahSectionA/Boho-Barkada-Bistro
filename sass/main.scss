@@ -30,5 +30,9 @@ $background-color: #f1e9e2;
   height: 600px;
   object-fit: cover;
 }
+
+.small-input {
+  max-width: 400px; /* Adjust the width as needed */
+}
 // import bootstrap
 @import "../node_modules/bootstrap//scss/bootstrap";
