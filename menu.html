@@ -114,6 +114,42 @@
         font-weight: bold;
         color: #9f6f56;
       }
+
+      footer {
+        background-color: #9f6f56;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .footer .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-links {
+        margin-top: 10px;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        margin: 0 5px;
+      }
+
+      .footer-links a:hover {
+        text-decoration: underline;
+      }
+
+      .social-icons a {
+        color: white;
+        margin: 0 10px;
+        font-size: 1.2em;
+      }
+
+      .social-icons a:hover {
+        color: var(--color-3);
+      }
     </style>
   </head>
   <body>
@@ -404,7 +440,8 @@
       </div>
     </div>
 
-    <footer class="text-center text-lg-start text-white">
+    <!-- Footer -->
+    <footer class="footer text-center text-lg-start text-white">
       <!-- Grid container -->
       <div class="container p-4 pb-0">
         <!-- Section: Links -->
@@ -413,10 +450,13 @@
           <div class="row">
             <!-- Grid column -->
             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold">Boho Barkada</h6>
-              <p>
-                "Experience the finest culinary delights at Boho Barkada. Join
-                us for an unforgettable dining experience!"
+              <h6 class="text-uppercase mb-4 font-weight-bold text-white">
+                Boho Barkada
+              </h6>
+              <p class="text-white">
+                Here you can use rows and columns to organize your footer
+                content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit.
               </p>
             </div>
             <!-- Grid column -->
@@ -425,7 +465,9 @@
 
             <!-- Grid column -->
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+              <h6 class="text-uppercase mb-4 font-weight-bold text-white">
+                Products
+              </h6>
               <p>
                 <a class="text-white">MDBootstrap</a>
               </p>
@@ -445,7 +487,9 @@
 
             <!-- Grid column -->
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+              <h6 class="text-uppercase mb-4 font-weight-bold text-white">
+                Useful links
+              </h6>
               <p>
                 <a class="text-white">Your Account</a>
               </p>
@@ -465,11 +509,21 @@
 
             <!-- Grid column -->
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-              <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-              <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
-              <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-              <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+              <h6 class="text-uppercase mb-4 font-weight-bold text-white">
+                Contact
+              </h6>
+              <p class="text-white">
+                <i class="fas fa-home mr-3"></i> New York, NY 10012, US
+              </p>
+              <p class="text-white">
+                <i class="fas fa-envelope mr-3"></i> info@gmail.com
+              </p>
+              <p class="text-white">
+                <i class="fas fa-phone mr-3"></i> + 01 234 567 88
+              </p>
+              <p class="text-white">
+                <i class="fas fa-print mr-3"></i> + 01 234 567 89
+              </p>
             </div>
             <!-- Grid column -->
           </div>
@@ -485,7 +539,7 @@
             <!-- Grid column -->
             <div class="col-md-7 col-lg-8 text-center text-md-start">
               <!-- Copyright -->
-              <div class="p-3">
+              <div class="p-3 text-white">
                 © 2024 Copyright:
                 <a class="text-white" href="https://mdbootstrap.com/"
                   >MDBootstrap.com</a
@@ -502,7 +556,7 @@
                 class="btn btn-outline-light btn-floating m-1"
                 class="text-white"
                 role="button"
-                ><i class="fab fa-facebook-f"></i
+                ><i class="fab fa-facebook-f text-white"></i
               ></a>
 
               <!-- Twitter -->
@@ -510,7 +564,7 @@
                 class="btn btn-outline-light btn-floating m-1"
                 class="text-white"
                 role="button"
-                ><i class="fab fa-twitter"></i
+                ><i class="fab fa-twitter text-white"></i
               ></a>
 
               <!-- Google -->
@@ -518,15 +572,14 @@
                 class="btn btn-outline-light btn-floating m-1"
                 class="text-white"
                 role="button"
-                ><i class="fab fa-google"></i
+                ><i class="fab fa-google text-white"></i
               ></a>
 
               <!-- Instagram -->
               <a
-                class="btn btn-outline-light btn-floating m-1"
-                class="text-white"
+                class="btn btn-outline-light btn-floating m-1 text-white"
                 role="button"
-                ><i class="fab fa-instagram"></i
+                ><i class="fab fa-instagram text-white"></i
               ></a>
             </div>
             <!-- Grid column -->
@@ -536,7 +589,7 @@
       </div>
       <!-- Grid container -->
     </footer>
-
+    <!-- Footer -->
     <script>
       document
         .querySelectorAll(".navbar-nav .nav-link")
