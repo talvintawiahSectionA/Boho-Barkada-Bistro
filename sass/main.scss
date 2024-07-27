@@ -20,33 +20,6 @@ $background-color: #f1e9e2;
   height: 100;
 }
 
-footer {
-  background-color: #9f6f56;
-  color: white;
-  text-align: center;
-  padding: 10px;
-}
-
-.footer .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footer-links {
-  margin-top: 10px;
-}
-
-.footer-links a {
-  color: white;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
-}
-
 .img-sizing-small {
   width: 250px;
   height: 300px;
