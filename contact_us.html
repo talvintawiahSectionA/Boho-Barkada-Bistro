@@ -11,6 +11,13 @@
     />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
+      body {
+        font-family: "Marcellus", "serif";
+      }
+      .FAQS,
+      .get-in-touch {
+        margin: 5%;
+      }
       /* navbar.css */
 
       .navbar-nav .nav-link {
@@ -56,6 +63,7 @@
 
       #map {
         height: 400px;
+        width: 70%;
       }
 
       footer {
@@ -64,6 +72,7 @@
         text-align: center;
         padding: 20px;
         border-top: 1px solid #9f6f56;
+        margin: 0%;
       }
 
       .footer-links a,
@@ -207,26 +216,17 @@
     <!-- Contact Info Section -->
     <section class="contact-info">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-10">
-            <div id="map"></div>
-          </div>
-          <div class="col-md-2 mt-2">
-            <div class="contact-details">
-              <p class="lead-5 text-secondary">
-                <i class="fas fa-home mr-3"></i> New York, NY 10012, US
-              </p>
-              <p class="lead-5 text-secondary">
-                <i class="fas fa-envelope mr-3"></i> info@gmail.com
-              </p>
-              <p class="lead-5 text-secondary">
-                <i class="fas fa-phone mr-3"></i> + 01 234 567 88
-              </p>
-              <p class="lead-5 text-secondary">
-                <i class="fas fa-print mr-3"></i> + 01 234 567 89
-              </p>
-            </div>
-          </div>
+        <div id="map" class="mx-auto"></div>
+        <div class="contact-details text-center">
+          <p class="lead-5 text-secondary">
+            <i class="fas fa-home mr-3"></i> New York, NY 10012, US
+
+            <i class="fas fa-envelope mr-3"></i> info@gmail.com
+
+            <i class="fas fa-phone mr-3"></i> + 01 234 567 88
+
+            <i class="fas fa-print mr-3"></i> + 01 234 567 89
+          </p>
         </div>
       </div>
     </section>
@@ -310,6 +310,7 @@
 
     <div class="spacing"></div>
     <div class="spacing"></div>
+
     <section class="get-in-touch">
       <div class="container-lg mx-5"></div>
       <div class="row mx-3">
