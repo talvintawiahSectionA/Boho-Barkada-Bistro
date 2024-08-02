@@ -90,10 +90,12 @@ footer {
 }
 
 .navbar-nav .nav-link {
-  margin-right: 1rem;
+  margin-right: 2rem;
   position: relative;
   overflow: hidden;
   display: inline-block;
+  color: $primary;
+  font-size: 1.25rem;
 }
 
 .navbar-nav .nav-link svg {
